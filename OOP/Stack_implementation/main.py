@@ -34,13 +34,13 @@ Linked_list1.add_Node(node2)
 Linked_list1.add_Node(node3)
 Linked_list1.add_Node(node4)
 
-for i in range(0,5):
-    print(Linked_list1.get_Node_by_index(i))
+# for i in range(0,4):
+#     print(Linked_list1.get_Node_by_index(i))
 
 Linked_list1.insert_Node_by_index(2,node5)
 
 print("\n\n\n\n\n")
 
-for i in range(0,6):
-    print(Linked_list1.get_Node_by_index(i))
+for i in range(0,5):
+    print(Linked_list1.get_Node_by_index(i).data)
 

@@ -10,9 +10,6 @@ class Linked_list:
     def add_Node(self, node):
         if self.first is None:
             self.first = node
-        elif self.last is None:
-            self.first.next = node
-            node.prev = self.first
             self.last = node
         else:
             node.prev = self.last
@@ -26,14 +23,12 @@ class Linked_list:
 
             current = current.next
         if current is not None:
-            return current.data
+            return current
         else:
-            return "End Of List"
+            return Exception("End Of List")
 
     def insert_Node_by_index(self, index, node):
-        current = self.first
-        for i in range(-1, index - 1):
-            current = current.next
+        current = self.get_Node_by_index(index)
         temp = current
         node.next = temp
         node.prev = temp.prev
