@@ -1,8 +1,10 @@
 import menu
+
 def run():
-    #create_hashtable
-
-    while menu():
+    menu.current = 0
+    while menu.menu():
         pass
+    print("Completed")
 
-run()
+if __name__ == "main":
+    run()
