@@ -2,6 +2,10 @@ from hashtable.hashtable import HashTable
 
 current = 0
 POI_Hashtable = HashTable()
+POI_Hashtable.add("Railway Station",("Transport","A train station with 4 platforms."))
+POI_Hashtable.add("Park Cafe",("Restaurant","A Cafe with free coffee refills."))
+POI_Hashtable.add("War Memorial",("Memorial","Statue dedicated to those who were lost."))
+POI_Hashtable.add("White Horse Pub",("Restaurant","A pub that serves food before 9:30PM."))
 
 def menu():
     global current
@@ -41,7 +45,9 @@ def delete():
     print(POI_Hashtable.delete(input("Name to Remove: ")))
 
 def showall():
-    print(POI_Hashtable.getall())
+    print("Showing all POIs sorted by their Name:")
+    for POI in POI_Hashtable.getall():
+        print("\n" + POI)
 
 def enquiry():
     pass

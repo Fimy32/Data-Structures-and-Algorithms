@@ -16,7 +16,8 @@ class HashTable:
         return "Added",key,value
 
     def delete(self,key):
-        pass
+        self.buckets[hash(key) % 127].delete(key)
+        return "Deleted",key
 
     def get(self, key):
         for i in range(self.buckets[hash(key) % 127].size):
@@ -26,9 +27,17 @@ class HashTable:
         return total
 
     def getall(self,):
-        all = ""
+        all = []
         for bucket in self.buckets:
             if bucket is not None:
                 for i in range(bucket.size):
-                    all = all + (str(bucket.get(i))) + "\n"
-        return all
+                    if bucket.get(i) is not None:
+                        all.append(bucket.get(i))
+        all.sort()
+        if len(all) == 0:
+            return "No POIs Found"
+        else:
+            temp = ""
+            for element in all:
+                temp = temp + element
+            return all

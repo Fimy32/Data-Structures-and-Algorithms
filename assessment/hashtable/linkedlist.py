@@ -21,7 +21,10 @@ class LinkedList:
         currentNode = self.first
         while currentNode is not None:
             if counter == index:
-                return str(currentNode)
+                if currentNode.value[0] == None:
+                    return None
+                else:
+                    return str(currentNode)
             else:
                 currentNode = currentNode.next
                 counter += 1
@@ -32,8 +35,12 @@ class LinkedList:
         currentNode = self.first
         while currentNode is not None:
             if currentNode.value[0] == key:
-                return currentNode.value[1]
+                return currentNode
             else:
                 currentNode = currentNode.next
         return None
+    
+    def delete(self,key):
+        self.find(key).value = (None,("None,None"))
+        
     
