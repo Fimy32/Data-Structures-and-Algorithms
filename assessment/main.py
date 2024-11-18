@@ -6,5 +6,4 @@ def run():
         pass
     print("Completed")
 
-if __name__ == "main":
-    run()
+run()

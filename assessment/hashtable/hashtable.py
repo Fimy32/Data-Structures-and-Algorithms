@@ -5,7 +5,7 @@ class HashTable:
         self.buckets = [LinkedList() for i in range(127)]
 
     def hash(self, key):
-        totalhash = ""
+        totalhash = 0
         for i in range(len(key)):
             for char in key:
                 totalhash += (ord(char) * 31) ^ i
@@ -20,6 +20,8 @@ class HashTable:
             total = ""
             for g in range(len(key)):
                 total += self.buckets[hash(key) % 127].get(i)[g]
+                temp = (i,g)
+        self.buckets[hash(key) % 127].get(temp[0])[temp[1]] = None
         return "Deleted", total
     
     def get(self, key):
@@ -28,3 +30,10 @@ class HashTable:
             for g in range(len(key)):
                 total += self.buckets[hash(key) % 127].get(i)[g]
         return total
+
+    def getall(self,):
+        all = []
+        for bucket in self.buckets:
+            if bucket is not None:
+                all.append(bucket)
+        return all
