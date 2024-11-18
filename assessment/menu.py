@@ -6,8 +6,12 @@ POI_Hashtable = HashTable()
 def menu():
     global current
     options = [("Add a POI",add),("Search a POI",search),("Remove a POI",delete),("Show all POIs",showall),("Add an Enquiry",enquiry),("Exit",)]
-    for i in range(len(options) - 1):
-        print("|",options[i][0], end=" | ")
+    print("\n")
+    for i in range(len(options)):
+        if i == current:
+            print("[~" + options[i][0].upper(), end="~] ")
+        else:
+            print("|",options[i][0], end=" | ")
     option = input("\n\nWould you like to " + options[current][0] + "?\n\n<         Y        >\n\n")
     if option == "Y" and options[current][0] == "Exit":
         return False
@@ -31,13 +35,13 @@ def add():
     print(POI_Hashtable.add(input("Please Enter POI Name "),(input("Please Enter POI type "),input("Please Enter POI Desc "))))
 
 def search():
-    print("Found", POI_Hashtable.get("Please Enter POI Name "))
+    print("Found", POI_Hashtable.get(input("Please Enter POI Name ")))
 
 def delete():
-    pass
+    print(POI_Hashtable.delete(input("Name to Remove: ")))
 
 def showall():
-    pass
+    print(POI_Hashtable.getall())
 
 def enquiry():
     pass

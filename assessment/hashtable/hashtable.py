@@ -15,25 +15,20 @@ class HashTable:
         self.buckets[hash(key) % 127].add(key, value)
         return "Added",key,value
 
-    def delete(self, key):
-        for i in range(self.buckets[hash(key) % 127].size):
-            total = ""
-            for g in range(len(key)):
-                total += self.buckets[hash(key) % 127].get(i)[g]
-                temp = (i,g)
-        self.buckets[hash(key) % 127].get(temp[0])[temp[1]] = None
-        return "Deleted", total
-    
+    def delete(self,key):
+        pass
+
     def get(self, key):
         for i in range(self.buckets[hash(key) % 127].size):
             total = ""
             for g in range(len(key)):
-                total += self.buckets[hash(key) % 127].get(i)[g]
+                total += self.buckets[hash(key) % 127].get(i)
         return total
 
     def getall(self,):
-        all = []
+        all = ""
         for bucket in self.buckets:
             if bucket is not None:
-                all.append(bucket)
+                for i in range(bucket.size):
+                    all = all + (str(bucket.get(i))) + "\n"
         return all

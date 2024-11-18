@@ -21,11 +21,11 @@ class LinkedList:
         currentNode = self.first
         while currentNode is not None:
             if counter == index:
-                return currentNode
+                return str(currentNode)
             else:
                 currentNode = currentNode.next
                 counter += 1
-        return currentNode.value[1]
+        return None
     
 
     def find(self, key):
@@ -36,3 +36,4 @@ class LinkedList:
             else:
                 currentNode = currentNode.next
         return None
+    

@@ -9,4 +9,4 @@ class Node:
         otherNode.prev = self
 
     def __str__(self):
-        return f"Node containing \"{self.value[1]}\""
+        return str(("Name:", self.value[0], "Type:",self.value[1][0], "Desc:",self.value[1][1]))
