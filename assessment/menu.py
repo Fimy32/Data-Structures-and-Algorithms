@@ -55,5 +55,7 @@ def enquiry():
     enquiries.push(input("Enter your enquiry: "))
 
 def answer():
+    
     print(enquiries.peek())
     enquiries.pop()
+    print("Remaining Queries: " + str(enquiries.return_remaining()))
