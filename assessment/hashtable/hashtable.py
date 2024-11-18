@@ -1,4 +1,5 @@
 from hashtable.linkedlist import LinkedList
+from insertionsort import *
 
 class HashTable:
     def __init__(self,):
@@ -33,6 +34,7 @@ class HashTable:
                 for i in range(bucket.size):
                     if bucket.get(i) is not None:
                         all.append(bucket.get(i))
+        #all = insertionsort(all)
         all.sort()
         if len(all) == 0:
             return "No POIs Found"

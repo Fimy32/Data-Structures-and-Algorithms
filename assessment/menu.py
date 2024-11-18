@@ -1,6 +1,8 @@
 from hashtable.hashtable import HashTable
+from queue import Queue
 
 current = 0
+enquiries = Queue()
 POI_Hashtable = HashTable()
 POI_Hashtable.add("Railway Station",("Transport","A train station with 4 platforms."))
 POI_Hashtable.add("Park Cafe",("Restaurant","A Cafe with free coffee refills."))
@@ -9,7 +11,7 @@ POI_Hashtable.add("White Horse Pub",("Restaurant","A pub that serves food before
 
 def menu():
     global current
-    options = [("Add a POI",add),("Search a POI",search),("Remove a POI",delete),("Show all POIs",showall),("Add an Enquiry",enquiry),("Exit",)]
+    options = [("Add a POI",add),("Search a POI",search),("Remove a POI",delete),("Show all POIs",showall),("Add an Enquiry",enquiry),("Answer an Enquiry",answer),("Exit",)]
     print("\n")
     for i in range(len(options)):
         if i == current:
@@ -24,12 +26,12 @@ def menu():
         return True
     elif option == "<":
         if current == 0:
-            current = 5
+            current = 6
         else:
             current -= 1
         return True
     else:
-        if current == 5:
+        if current == 6:
             current = 0
         else:
             current += 1
@@ -50,6 +52,8 @@ def showall():
         print("\n" + POI)
 
 def enquiry():
-    pass
+    enquiries.push(input("Enter your enquiry: "))
 
-
+def answer():
+    print(enquiries.peek())
+    enquiries.pop()
