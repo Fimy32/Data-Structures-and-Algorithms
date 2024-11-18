@@ -1,4 +1,4 @@
-from linkedlist import LinkedList
+from hashtable.linkedlist import LinkedList
 
 class HashTable:
     def __init__(self,):
