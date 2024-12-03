@@ -8,7 +8,7 @@ class Queue:
 
     def push(self, item):
 
-        self.internalList.add(str(self.id),("Query",item))
+        self.internalList.add((item),("ID:",str(self.id)))
         self.id += 1
         self.remaining += 1
 

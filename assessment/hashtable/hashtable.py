@@ -33,13 +33,14 @@ class HashTable:
             if bucket is not None:
                 for i in range(bucket.size):
                     if bucket.get(i) is not None:
-                        all.append(bucket.get(i))
-        #all = insertionsort(all)
-        all.sort()
+                        all.append(ord(bucket.get(i)[0]),bucket.get(i))
+        all = insertionsort(all)
+        #all.sort()
         if len(all) == 0:
             return "No POIs Found"
         else:
-            temp = ""
+            temp = []
             for element in all:
-                temp = temp + element
-            return all
+                temp.append(element[1])
+            return temp
+        

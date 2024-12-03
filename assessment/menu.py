@@ -1,5 +1,6 @@
 from hashtable.hashtable import HashTable
 from queue import Queue
+import json
 
 current = 0
 enquiries = Queue()
@@ -8,9 +9,15 @@ POI_Hashtable.add("Railway Station",("Transport","A train station with 4 platfor
 POI_Hashtable.add("Park Cafe",("Restaurant","A Cafe with free coffee refills."))
 POI_Hashtable.add("War Memorial",("Memorial","Statue dedicated to those who were lost."))
 POI_Hashtable.add("White Horse Pub",("Restaurant","A pub that serves food before 9:30PM."))
+#with open("assessment/pois.json","r") as file:
+
+
+
 
 def menu():
     global current
+    with open("assessment/pois.json","w") as file:
+        json.dump(POI_Hashtable.getall(),file)
     options = [("Add a POI",add),("Search a POI",search),("Remove a POI",delete),("Show all POIs",showall),("Add an Enquiry",enquiry),("Answer an Enquiry",answer),("Exit",)]
     print("\n")
     for i in range(len(options)):
@@ -55,7 +62,7 @@ def enquiry():
     enquiries.push(input("Enter your enquiry: "))
 
 def answer():
-    
+    #currentq = enquiries.peek()
     print(enquiries.peek())
     enquiries.pop()
     print("Remaining Queries: " + str(enquiries.return_remaining()))
