@@ -8,7 +8,7 @@ enquiries = Queue()
 POI_Hashtable = HashTable()
 #with open("assessment/pois.json","r") as file:
 route = BinaryTree()
-route.insert((ord("w"),"Railway Station"))
+route.insert((ord("g"),"Railway Station"))
 route.insert((ord("u"),"West Quay"))
 route.insert((ord("a"),"Park Cafe"))
 route.insert((ord("l"),"Mcdonalds"))

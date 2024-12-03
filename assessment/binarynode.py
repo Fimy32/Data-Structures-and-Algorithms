@@ -27,11 +27,12 @@ class Node:
                 self.right.recursiveprint(number + 1)
 
     def search(self, value, number):
-        print("\n\n\nSearching: ",value, "Against:",self.data)
-        print(self.left.data,self.right.data)
+        print(str(number), self.data[1])
         if self.data == value:
-            print("Found in", number, "searches!")
-        elif self.data[0] < value[0]:
+            pass
+        elif self.right == None:
+            self.left.search(value, number + 1)
+        elif self.data[0] > value[0]:
             self.left.search(value, number + 1)
         else:
             self.right.search(value, number + 1)
