@@ -1,6 +1,7 @@
 from hashtable.hashtable import HashTable
 from queue import Queue
 import json
+from binarytree import binarytree
 
 current = 0
 enquiries = Queue()
@@ -9,7 +10,12 @@ POI_Hashtable.add("Railway Station",("Transport","A train station with 4 platfor
 POI_Hashtable.add("Park Cafe",("Restaurant","A Cafe with free coffee refills."))
 POI_Hashtable.add("War Memorial",("Memorial","Statue dedicated to those who were lost."))
 POI_Hashtable.add("White Horse Pub",("Restaurant","A pub that serves food before 9:30PM."))
+POI_Hashtable.add("West Quay",("Shopping Centre","A big complex with many high-street retailers."))
+POI_Hashtable.add("Mcdonalds",("Restaurant","Fast Food for an afordable price."))
+POI_Hashtable.add("Southampton Common",("Park","A park in central Southampton."))
 #with open("assessment/pois.json","r") as file:
+route = binarytree()
+route.insert((0,"Railway Station"))
 
 
 

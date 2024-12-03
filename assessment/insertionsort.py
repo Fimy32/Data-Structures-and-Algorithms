@@ -5,7 +5,4 @@ def insertionsort(numbers):
 
             numbers[counter - 1], numbers[counter] = numbers[counter], numbers[counter - 1]
             counter = counter - 1
-        
-    for element in numbers:
-        print(element)
     return numbers
