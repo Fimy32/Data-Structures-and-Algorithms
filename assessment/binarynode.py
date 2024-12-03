@@ -5,12 +5,12 @@ class Node:
         self.right = None
 
     def recursiveinsert(self,value):
-        if self.data > value[0]:
+        if self.data[0] > value[0]:
             if self.left is None:
                 self.left = Node(value)
             else:
                 self.left.recursiveinsert(value)
-        elif value[0] > self.data:
+        elif value[0] > self.data[0]:
             if self.right is None:
                 self.right = Node(value)
             else:
@@ -27,9 +27,11 @@ class Node:
                 self.right.recursiveprint(number + 1)
 
     def search(self, value, number):
+        print("\n\n\nSearching: ",value, "Against:",self.data)
+        print(self.left.data,self.right.data)
         if self.data == value:
             print("Found in", number, "searches!")
-        elif self.data < value:
+        elif self.data[0] < value[0]:
             self.left.search(value, number + 1)
         else:
             self.right.search(value, number + 1)
