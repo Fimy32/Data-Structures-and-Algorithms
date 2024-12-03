@@ -33,7 +33,7 @@ class HashTable:
             if bucket is not None:
                 for i in range(bucket.size):
                     if bucket.get(i) is not None:
-                        all.append(ord(bucket.get(i)[0]),bucket.get(i))
+                        all.append((ord(bucket.get(i)[5]),bucket.get(i)))
         all = insertionsort(all)
         #all.sort()
         if len(all) == 0:
