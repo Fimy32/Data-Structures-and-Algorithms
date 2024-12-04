@@ -21,8 +21,8 @@ route.insert((ord("m"),"Southampton Common"))
 
 def menu():
     global current
-    with open("assessment/pois.json","w") as file:
-        json.dump(POI_Hashtable.getall(),file)
+    #with open("assessment/pois.json","w") as file:
+        #json.dump(POI_Hashtable.getall(),file)
     options = [("Add a POI",add),("Search a POI",search),("Remove a POI",delete),("Show all POIs",showall),("Find a Route",routing),("Add an Enquiry",enquiry),("Answer an Enquiry",answer),("Exit",)]
     print("\n")
     for i in range(len(options)):
