@@ -35,7 +35,6 @@ class HashTable:
                     if bucket.get(i) is not None:
                         all.append((ord(bucket.get(i)[2]),bucket.get(i)))
         all = insertionsort(all)
-        #all.sort()
         if len(all) == 0:
             return "No POIs Found"
         else:

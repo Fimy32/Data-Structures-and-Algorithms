@@ -2,11 +2,18 @@ from hashtable.hashtable import HashTable
 from queue import Queue
 import json
 from binarytree import BinaryTree
+import pois_text_file; pois_text = pois_text_file.pois
 
 current = 0
 enquiries = Queue()
 POI_Hashtable = HashTable()
-#with open("assessment/pois.json","r") as file:
+# POI_Hashtable.add("Railway Station",("Transport","A train station with 4 platforms."))
+# POI_Hashtable.add("Park Cafe",("Restaurant","A Cafe with free coffee refills."))
+# POI_Hashtable.add("War Memorial",("Memorial","Statue dedicated to those who were lost."))
+# POI_Hashtable.add("White Horse Pub",("Restaurant","A pub that serves food before 9:30PM."))
+# POI_Hashtable.add("West Quay",("Shopping Centre","A big complex with many high-street retailers."))
+# POI_Hashtable.add("Mcdonalds",("Restaurant","Fast Food for an afordable price."))
+# POI_Hashtable.add("Southampton Common",("Park","A park in central Southampton."))
 route = BinaryTree()
 route.insert((ord("g"),"Railway Station"))
 route.insert((ord("u"),"West Quay"))
@@ -16,20 +23,30 @@ route.insert((ord("P"),"White Horse Pub"))
 route.insert((ord("i"),"War Memorial"))
 route.insert((ord("m"),"Southampton Common"))
 
-
-
+for element in pois_text:
+    POI_Hashtable.add(element[0],(element[1],element[2]))
 
 def menu():
     global current
-    #with open("assessment/pois.json","w") as file:
-        #json.dump(POI_Hashtable.getall(),file)
+    templist = []
+    for element in POI_Hashtable.getall():
+        templist.append(str(element))
+    #print(templist)
+
+    with open("assessment/pois_text_file.py","w") as file:
+        file.write("pois = [")
+        for element in templist:
+            file.write(f"{element},")
+        file.write("]")
+
+
     options = [("Add a POI",add),("Search a POI",search),("Remove a POI",delete),("Show all POIs",showall),("Find a Route",routing),("Add an Enquiry",enquiry),("Answer an Enquiry",answer),("Exit",)]
     print("\n")
     for i in range(len(options)):
         if i == current:
-            print("[~" + options[i][0].upper(), end="~] ")
+            print("[>" + options[i][0].upper(), end="<\n")
         else:
-            print("|",options[i][0], end=" | ")
+            print("|",options[i][0], end="  \n")
     option = input("\n\nWould you like to " + options[current][0] + "?\n\n<         Y        >\n\n")
     if option == "Y" and options[current][0] == "Exit":
         return False
@@ -50,7 +67,7 @@ def menu():
         return True
 
 def add():
-    print(POI_Hashtable.add(input("Please Enter POI Name "),(input("Please Enter POI type "),input("Please Enter POI Desc "))))
+    print(POI_Hashtable.add(input("Please Enter POI Name "), (input("Please Enter POI type "), input("Please Enter POI Desc "))))
 
 def search():
     print("Found", POI_Hashtable.get(input("Please Enter POI Name ")))
@@ -80,10 +97,3 @@ def routing():
 
 
 #POI_Hashtable = HashTable()
-#POI_Hashtable.add("Railway Station",("Transport","A train station with 4 platforms."))
-#POI_Hashtable.add("Park Cafe",("Restaurant","A Cafe with free coffee refills."))
-#POI_Hashtable.add("War Memorial",("Memorial","Statue dedicated to those who were lost."))
-#POI_Hashtable.add("White Horse Pub",("Restaurant","A pub that serves food before 9:30PM."))
-#POI_Hashtable.add("West Quay",("Shopping Centre","A big complex with many high-street retailers."))
-#POI_Hashtable.add("Mcdonalds",("Restaurant","Fast Food for an afordable price."))
-#POI_Hashtable.add("Southampton Common",("Park","A park in central Southampton."))

@@ -10,4 +10,4 @@ class Node:
     def delete(self):
         self.value = (None,(None,None))
     def __str__(self):
-        return str((self.value[0], "(" + self.value[1][0] + ")", "\"" + self.value[1][1] + "\""))
+        return str((self.value[0], self.value[1][0], self.value[1][1]))
