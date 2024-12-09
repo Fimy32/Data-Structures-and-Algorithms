@@ -48,6 +48,7 @@ def menu():
         else:
             print("|",options[i][0], end="  \n")
     option = input("\n\nWould you like to " + options[current][0] + "?\n\n<         Y        >\n\n")
+    print("\n" * 20)
     if option == "Y" and options[current][0] == "Exit":
         return False
     elif option == "Y":
@@ -85,9 +86,12 @@ def enquiry():
 
 def answer():
     #currentq = enquiries.peek()
-    print(enquiries.peek())
-    enquiries.pop()
-    print("Remaining Queries: " + str(enquiries.return_remaining()))
+    if enquiries.return_remaining() >0:
+        print(enquiries.peek())
+        enquiries.pop()
+        print("Remaining Queries: " + str(enquiries.return_remaining()))
+    else:
+        print("No More Queries Remain")
 
 def routing():
     routefind = input("Enter name of POI to route to from the train station. This only works with the initial POIs: ")

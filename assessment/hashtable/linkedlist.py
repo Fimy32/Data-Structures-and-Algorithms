@@ -23,6 +23,13 @@ class LinkedList:
             if counter == index:
                 if currentNode.value[0] == None:
                     return None
+                elif currentNode.prev != None:
+                    while input("Is this the POI you were looking for? " + str(currentNode) + " Y/N") != "Y":
+                        if currentNode.prev is None:
+                            print("\nNo other POI with that name found!\n")
+                        else:
+                            currentNode = currentNode.prev
+                    return str(currentNode)
                 else:
                     return str(currentNode)
             else:
@@ -30,7 +37,43 @@ class LinkedList:
                 counter += 1
         return None
     
+    def getnonspecific(self, index):
+        counter = 0
+        currentNode = self.first
+        while currentNode is not None:
+            if counter == index:
+                if currentNode.value[0] == None:
+                    return None
+                else:
+                    return str(currentNode)
+            else:
+                currentNode = currentNode.next
+                counter += 1
+        return None
+    
+    
     def deletenode(self, index):
+        counter = 0
+        currentNode = self.first
+        while currentNode is not None:
+            if counter == index:
+                if currentNode.value[0] == None:
+                    return None
+                elif currentNode.prev != None:
+                    while input("Is this the POI you were looking for? " + str(currentNode) + " Y/N") != "Y":
+                        if currentNode.prev is None:
+                            print("\nNo other POI with that name found!\n")
+                        else:
+                            currentNode = currentNode.prev
+                    return str(currentNode)
+                else:
+                    return str(currentNode)
+            else:
+                currentNode = currentNode.next
+                counter += 1
+        return None
+    
+    def deletefirstnode(self, index):
         counter = 0
         currentNode = self.first
         while currentNode is not None:
@@ -43,12 +86,18 @@ class LinkedList:
                 currentNode = currentNode.next
                 counter += 1
         return None
-    
 
     def find(self, key):
         currentNode = self.first
-        while currentNode is not None:
-            if currentNode.value[0] == key:
+        while currentNode is not None:    
+            if currentNode.next != None:
+                while input("Is this the POI you were looking for? " + str(currentNode) + " Y/N") != "Y":
+                    if currentNode.next is None:
+                        print("\nNo other POI with that name found!\n")
+                    else:
+                        currentNode = currentNode.next
+                return currentNode
+            elif currentNode.value[0] == key:
                 return currentNode
             else:
                 currentNode = currentNode.next
@@ -59,7 +108,7 @@ class LinkedList:
             self.get(key).value = (None,("None,None"))
         else:
             self.find(key).value = (None,("None,None"))
-    
+
 
         
     

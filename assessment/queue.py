@@ -5,6 +5,7 @@ class Queue:
         self.internalList = LinkedList()
         self.id = 0
         self.remaining = 0
+        self.counter = 0
 
     def push(self, item):
 
@@ -13,19 +14,19 @@ class Queue:
         self.remaining += 1
 
     def pop(self,):
-        counter = 0
-        while self.internalList.get(counter) is None:
-            counter = counter + 1
-        self.internalList.deletenode(counter)
+        
+        while self.internalList.getnonspecific(self.counter) is None:
+            self.counter = self.counter + 1
+        self.internalList.deletefirstnode(self.counter)
         self.remaining -= 1
 
 
 
     def peek(self):
-            counter = 0
-            while self.internalList.get(counter) is None:
-                counter = counter + 1
-            return self.internalList.get(counter)
+            
+            while self.internalList.getnonspecific(self.counter) is None:
+                self.counter = self.counter + 1
+            return self.internalList.getnonspecific(self.counter)
 
     def return_remaining(self):
          return self.remaining

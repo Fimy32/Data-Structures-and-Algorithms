@@ -24,16 +24,19 @@ class HashTable:
         for i in range(self.buckets[hash(key) % 127].size):
             total = ""
             for g in range(len(key)):
-                total += self.buckets[hash(key) % 127].get(i)
-        return total
+                total = self.buckets[hash(key) % 127].get(i)
+        if total is None:
+            return "No Poi Found"
+        else:
+            return total
 
     def getall(self,):
         all = []
         for bucket in self.buckets:
             if bucket is not None:
                 for i in range(bucket.size):
-                    if bucket.get(i) is not None:
-                        all.append((ord(bucket.get(i)[2]),bucket.get(i)))
+                    if bucket.getnonspecific(i) is not None:
+                        all.append((ord(bucket.getnonspecific(i)[2]),bucket.getnonspecific(i)))
         all = insertionsort(all)
         if len(all) == 0:
             return "No POIs Found"
