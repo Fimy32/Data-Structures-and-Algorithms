@@ -7,13 +7,7 @@ import pois_text_file; pois_text = pois_text_file.pois
 current = 0
 enquiries = Queue()
 POI_Hashtable = HashTable()
-# POI_Hashtable.add("Railway Station",("Transport","A train station with 4 platforms."))
-# POI_Hashtable.add("Park Cafe",("Restaurant","A Cafe with free coffee refills."))
-# POI_Hashtable.add("War Memorial",("Memorial","Statue dedicated to those who were lost."))
-# POI_Hashtable.add("White Horse Pub",("Restaurant","A pub that serves food before 9:30PM."))
-# POI_Hashtable.add("West Quay",("Shopping Centre","A big complex with many high-street retailers."))
-# POI_Hashtable.add("Mcdonalds",("Restaurant","Fast Food for an afordable price."))
-# POI_Hashtable.add("Southampton Common",("Park","A park in central Southampton."))
+
 route = BinaryTree()
 route.insert((ord("g"),"Railway Station"))
 route.insert((ord("u"),"West Quay"))
@@ -31,7 +25,6 @@ def menu():
     templist = []
     for element in POI_Hashtable.getall():
         templist.append(str(element))
-    #print(templist)
 
     with open("assessment/pois_text_file.py","w") as file:
         file.write("pois = [")
@@ -85,7 +78,6 @@ def enquiry():
     enquiries.push(input("Enter your enquiry: "))
 
 def answer():
-    #currentq = enquiries.peek()
     if enquiries.return_remaining() >0:
         print(enquiries.peek())
         enquiries.pop()
@@ -100,4 +92,3 @@ def routing():
 
 
 
-#POI_Hashtable = HashTable()

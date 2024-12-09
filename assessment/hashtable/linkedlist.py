@@ -24,7 +24,7 @@ class LinkedList:
                 if currentNode.value[0] == None:
                     return None
                 elif currentNode.prev != None:
-                    while input("Is this the POI you were looking for? " + str(currentNode) + " Y/N") != "Y":
+                    while input("Is this the POI you were looking for? " + str(currentNode) + " Y/N\n") != "Y":
                         if currentNode.prev is None:
                             print("\nNo other POI with that name found!\n")
                         else:
